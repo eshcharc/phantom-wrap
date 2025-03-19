@@ -4,7 +4,8 @@ import { HapticSetup, Program } from "@/models/program";
 import { StyleSheet, View, Image, Text } from "react-native";
 
 const HapticDevice = ({ haptic, name, position, labelOnTop = true }: { haptic: HapticSetup, name: string, position: number[], labelOnTop?: boolean }) => {
-  const markRadius = 20+20*(haptic.level/100)
+  const markRadius = 30*(haptic.level/100)
+  // const greenGain = 155 + haptic.level
   return (
     <View style={[styles.hapticDevice, {
       left: position[0],
@@ -14,10 +15,21 @@ const HapticDevice = ({ haptic, name, position, labelOnTop = true }: { haptic: H
     }]}>
       <Text style={styles.hapticName}>{name}</Text>
       <View style={[styles.hapticMark, { 
-        width: markRadius,
-        height: markRadius,
-        borderRadius: markRadius/2,
-        }]}/>
+        width: 30,
+        height: 30,
+        borderRadius: 15,
+        backgroundColor: 'black',
+        borderColor: 'green'
+        // backgroundColor: haptic.level ? `rgb(0, ${greenGain}, 0)` : 'black'
+        }]}>
+          <View style={[{ 
+            width: markRadius,
+            height: markRadius,
+            borderRadius: markRadius/2,
+            backgroundColor: 'green'
+            }]}>
+          </View>
+        </View>
     </View>
   )
 }
@@ -68,7 +80,8 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
     borderWidth: 1,
-    borderRadius: 7
+    borderRadius: 7,
+    boxShadow: '1px 1px 1px grey'
   },
   hapticDevice: {
     position: 'absolute',

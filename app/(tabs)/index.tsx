@@ -1,24 +1,15 @@
-import { StyleSheet, View } from 'react-native';
-import { useActivation } from '../../hooks/use-activation';
+import { StyleSheet, View, Text } from 'react-native';
 import { ActiveButton } from '@/components/ui/activation-button';
 import { CurrentProgramSetup } from '@/components/ui/current-program-setup';
 import { usePrograms } from '@/hooks/use-programs';
 import { defaultPrograms } from '@/defaults/programs';
-
+import { Stack } from 'expo-router';
+import { useActivation } from '@/hooks/use-activation';
 
 export default function HomeScreen() {
-  const { isActive, setActivation } = useActivation(false)
-  const { currentProgram } = usePrograms('program-2', defaultPrograms)
-
   return (
-    <View style={styles.container}>
-      <View style={styles.buttonContainer}>
-        <ActiveButton isActive={isActive} onPress={() => setActivation(!isActive)}></ActiveButton>
-      </View>
-      <View style={styles.setupContainer}>
-        <CurrentProgramSetup program={currentProgram} />
-      </View>
-      <View style={styles.indicatorsContainer} />
+    <View>
+        <Text>Home</Text>
     </View>
   );
 }
@@ -41,7 +32,5 @@ const styles = StyleSheet.create({
   indicatorsContainer: {
     flex: 5,
     padding: 10,
-    
-    backgroundColor: 'blue'
   },
 });

@@ -1,19 +1,19 @@
 import { Programs } from "@/models/programs"
-import { useMemo, useState } from "react"
+import { useMemo, useRef, useState } from "react"
 
 export const usePrograms = (initialProgramId: string, defaultPrograms: Programs) => {
     const [currentProgramId, setCurrentProgramId] = useState(initialProgramId)
-    const [programs, setPrograms] = useState(defaultPrograms)
+    const programs = useRef(defaultPrograms)
 
     const currentProgram = useMemo(() => {
-        const program = programs[currentProgramId]
+        const program = programs.current[currentProgramId]
 
         return program;
-    }, [initialProgramId])
+    }, [currentProgramId])
 
     return {
         currentProgram,
         setCurrentProgramId,
-        programs,
+        programs: programs.current,
     }
 }

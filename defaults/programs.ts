@@ -27,9 +27,9 @@ export const defaultPrograms: Programs = {
         name: 'Program 3',
         hapticDevices: {
             [HAPTIC_DEVICE.HEAT]: { level: 0, pattern: 9 },
-            [HAPTIC_DEVICE.TENSE]: { level: 20, pattern: 10 },
-            [HAPTIC_DEVICE.PREASURE]: { level: 10, pattern: 11 },
-            [HAPTIC_DEVICE.VIBRATION]: { level: 10, pattern: 12 }
+            [HAPTIC_DEVICE.TENSE]: { level: 25, pattern: 10 },
+            [HAPTIC_DEVICE.PREASURE]: { level: 75, pattern: 11 },
+            [HAPTIC_DEVICE.VIBRATION]: { level: 100, pattern: 12 }
         }
     }
 }

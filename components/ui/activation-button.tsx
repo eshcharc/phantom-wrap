@@ -6,7 +6,7 @@ export const ActiveButton = ({ isActive, onPress }: { isActive: boolean, onPress
       backgroundColor: isActive ? '#22cc22' : 'red',
       boxShadow: isActive ? '1px 1px 2px black': '5px 5px 5px black'
     }]} onPress={onPress}>
-      <Text style={styles.activeLabel}>{isActive ? "ACTIVATED" : "INACTIVE"}</Text>
+      <Text style={styles.activeLabel}>{isActive ? "RUNNING" : "STOPPED"}</Text>
     </TouchableOpacity>
   );
 };

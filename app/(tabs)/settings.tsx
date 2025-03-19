@@ -1,26 +1,15 @@
-import { Image, StyleSheet, Platform, View, Text, Button, TouchableOpacity, GestureResponderEvent } from 'react-native';
-
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
-
-const RoundedButton = ({ title, onPress }: { title: string, onPress: (event: GestureResponderEvent) => void }) => {
-  return (
-    <TouchableOpacity style={styles.button} onPress={onPress}>
-      <Text style={styles.text}>{title}</Text>
-    </TouchableOpacity>
-  );
-};
+import { StyleSheet, View, Text } from 'react-native';
+import { ActiveButton } from '@/components/ui/activation-button';
+import { CurrentProgramSetup } from '@/components/ui/current-program-setup';
+import { usePrograms } from '@/hooks/use-programs';
+import { defaultPrograms } from '@/defaults/programs';
+import { Stack } from 'expo-router';
+import { useActivation } from '@/hooks/use-activation';
 
 export default function HomeScreen() {
   return (
-    <View style={styles.container}>
-      <View style={{flex: 5, backgroundColor: 'red'}}>
-        <RoundedButton title="dfdfd" onPress={() => {}}></RoundedButton>
-      </View>
-      <View style={{flex: 2, backgroundColor: 'darkorange'}} />
-      <View style={{flex: 1, backgroundColor: 'green'}} />
+    <View>
+        <Text>Settings</Text>
     </View>
   );
 }
@@ -31,20 +20,17 @@ const styles = StyleSheet.create({
     padding: 20,
     flexDirection: 'column',
   },
-  button: {
-    backgroundColor: "#6200EE",
-    paddingVertical: 12,
-    paddingHorizontal: 25,
-    borderRadius: 50, // Makes it rounded
-    alignItems: "center",
-    flex: 1,
-    justifyContent: 'center',
-    width: 100,
-    height: 100
+  buttonContainer: {
+    flex: 2
   },
-  text: {
-    color: "white",
-    fontSize: 18,
-    fontWeight: "bold",
+  setupContainer: {
+    flex: 2,
+    padding: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  indicatorsContainer: {
+    flex: 5,
+    padding: 10,
   },
 });
